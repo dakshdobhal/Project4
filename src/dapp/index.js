@@ -25,6 +25,32 @@ import './flightsurety.css';
                 display('Oracles', 'Trigger oracles', [ { label: 'Fetch Flight Status', error: error, value: result.flight + ' ' + result.timestamp} ]);
             });
         })
+
+
+        DOM.elid('buy-insurance').addEventListener('click', () => {
+            let premiumAmount = DOM.elid('premium-amount').value;
+            // Write transaction
+            contract.buyInsurance(flight, premiumAmount, (error, result) => {
+                display('Passenger', 'Insurace Bought', [ { label: 'Insurance Purchased', error: error, value: result.passenger + ' ' + result.flight} ]);
+            });
+        })
+
+        DOM.elid('register-airline').addEventListener('click', () => {
+            let airline = DOM.elid('airline-address').value;
+            // Write transaction
+            contract.registerAirline(airline, (error, result) => {
+                display('Airline', 'Airline Registered', [ { label: 'Airline Registered', error: error, value: result.airline} ]);
+            });
+        })
+        
+        DOM.elid('fund-airline').addEventListener('click', () => {
+            let airline = DOM.elid('airline-address').value;
+            let fundingAmount = DOM.elid('funding-amount').value
+            // Write transaction
+            contract.fetchFlightStatus(flight, (error, result) => {
+                display('Airline', 'Airline Funded', [ { label: 'AirlineFunded', error: error, value: result.airline + ' funded ' + result.fundingAmount + ' ether'} ]);
+            });
+        })
     
     });
     

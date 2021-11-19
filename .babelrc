@@ -1,5 +1,6 @@
 {
-    "presets": ["@babel/env"],
+    // "presets": ["@babel/env"],
+    "presets": [ "es2015", "stage-0" ],
     "plugins": [
       "@babel/plugin-proposal-object-rest-spread",
       "@babel/plugin-proposal-class-properties"
